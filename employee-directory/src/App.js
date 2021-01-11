@@ -1,11 +1,8 @@
+import Header from "./components/Header";
 
-function App() {
+const App = () => {
 	return (
-		<div>
-			<header>
-				<h1>Employee Directory</h1>
-			</header>
-		</div>
+		<Header/>
 	);
 }
 
