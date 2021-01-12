@@ -6,7 +6,6 @@ const FilterForm = () => {
 	// Set up the useState hook
 	const [filter, setFilter] = useState();
 
-
 	return (
 		<div className="row">
 			<form className="search">
@@ -17,6 +16,7 @@ const FilterForm = () => {
 						placeholder="Filter"
 						name="filter"
 						id="filter"
+						value={filter}
 						onChange={e => setFilter(e.target.value)}
 					/>
 				</div>

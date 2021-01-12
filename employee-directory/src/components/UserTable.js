@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Table = () => {
+const UserTable = () => {
 	return (
 		<table className="table table-dark table-striped table-hover">
 			<thead>
@@ -31,4 +31,4 @@ const Table = () => {
 	);
 }
 
-export default Table;
+export default UserTable;

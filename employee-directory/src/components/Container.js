@@ -1,12 +1,12 @@
 import React from 'react';
-import SearchBar from './FilterForm';
-import Table from './Table';
+import FilterForm from './FilterForm';
+import UserTable from './UserTable';
 
 const Container = () => {
 	return (
 		<section className="container bg-secondary">
-			<SearchBar/>
-			<Table/>
+			<FilterForm/>
+			<UserTable/>
 		</section>
 	);
 }
