@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 
 // Filter form component
-const FilterForm = () => {
-
-	// Set up the useState hook
-	const [filter, setFilter] = useState();
+const FilterForm = ( {filterValue, handleFormInput, handleFormSubmit }) => {
 
 	return (
-		<div className="row">
-			<form className="search">
+		<div>
+			<form>
 				<div className="form-group">
 					<input
 						className="form-control"
 						type="text"
-						placeholder="Filter"
+						placeholder="Type here to start filtering"
 						name="filter"
 						id="filter"
-						value={filter}
-						onChange={e => setFilter(e.target.value)}
+						value={filterValue}
+						onChange={handleFormInput}
+						onSubmit={handleFormSubmit}
 					/>
 				</div>
 			</form>

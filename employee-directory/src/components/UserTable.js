@@ -2,21 +2,16 @@ import React from 'react';
 
 const UserTable = ({ users }) => {
 
-	console.log(users);
-
 	const userRows = users.map((user, index) => {
-		const fullName = `${user.name.first} ${user.name.last}`
 		return (
 			<tr key={index}>
-				<td><img src={user.picture.thumbnail} alt={fullName}></img></td>
-				<td>{fullName}</td>
+				<td><img src={user.image} alt={user.fullName}></img></td>
+				<td>{user.fullName}</td>
 				<td>{user.phone}</td>
 				<td>{user.email}</td>
 			</tr>
 		)
 	});
-
-	console.log(userRows);
 
 	return (
 		<>
