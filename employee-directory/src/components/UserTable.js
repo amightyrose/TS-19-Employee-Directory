@@ -1,7 +1,22 @@
 import React from 'react';
 
-const UserTable = () => {
+const UserTable = ( {arrUsers} ) => {
+
+	// console.log(arrUsers);
+
+	// const userRows = arrUsers.map(user =>
+	// 	<tr>
+	// 		<td><img src={user.picture.thumbnail} alt={user.name.first}></img></td>
+	// 		<td>{user.name.first} {user.name.last}</td>
+	// 		<td>{user.phone}</td>
+	// 		<td>{user.email}</td>
+	// 	</tr>
+	// );
+
+	// console.log(userRows);
+
 	return (
+		<>
 		<table className="table table-dark table-striped table-hover">
 			<thead>
 				<tr>
@@ -12,22 +27,11 @@ const UserTable = () => {
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Mark</td>
-					<td>Otto</td>
-					<td>@mdo</td>
-				</tr>
-				<tr>
-					<td>Jacob</td>
-					<td>Thornton</td>
-					<td>@fat</td>
-				</tr>
-				<tr>
-					<td colspan="2">Larry the Bird</td>
-					<td>@twitter</td>
-				</tr>
+				{/* {userRows} */}
 			</tbody>
 		</table>
+		<p></p>
+		</>
 	);
 }
 

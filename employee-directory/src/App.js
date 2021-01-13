@@ -1,13 +1,16 @@
-import Container from "./components/Container";
+import React from 'react';
 import Header from "./components/Header";
+import MainSection from './components/MainSection';
 
 const App = () => {
+
 	return (
 		<>
 			<Header />
-			<Container />
+			<MainSection />
 		</>
 	);
+
 }
 
 export default App;
