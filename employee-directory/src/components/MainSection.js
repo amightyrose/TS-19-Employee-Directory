@@ -89,7 +89,7 @@ const MainSection = () => {
 	return (
 		<main className="bg-secondary">
 			<FilterForm handleFormInput={handleFormInput} handleFormSubmit={handleFormSubmit}/>
-			<UserTable users={users} sortTable={sortTable}/>
+			<UserTable users={users} sortTable={sortTable} sortOrder={sortOrder}/>
 		</main>
 	);
 }

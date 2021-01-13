@@ -1,6 +1,22 @@
 import React from 'react';
 
-const UserTable = ({ users, sortTable }) => {
+const UserTable = ({ users, sortTable, sortOrder }) => {
+
+	// Choose a sort icon to use according to sort order.
+	let iconClass;
+
+	switch (sortOrder) {
+		case "up":
+			iconClass = "bi bi-caret-up-fill"
+			break;
+		case "down":
+			iconClass = "bi bi-caret-down-fill"
+			break;
+		default:
+			iconClass = "d-none"
+			break;
+	}
+
 
 	const userRows = users.map((user, index) => {
 		return (
@@ -19,7 +35,8 @@ const UserTable = ({ users, sortTable }) => {
 				<thead>
 					<tr>
 						<th scope="col">Image</th>
-						<th scope="col"><a href="#" className="text-decoration-none" onClick={sortTable}>Name</a></th>
+						<th scope="col"><a href="#" className="text-decoration-none text-white" onClick={sortTable}>Name</a>
+							<i className={`${iconClass} ml-2 text-secondary`}></i></th>
 						<th scope="col">Phone</th>
 						<th scope="col">Email</th>
 					</tr>
