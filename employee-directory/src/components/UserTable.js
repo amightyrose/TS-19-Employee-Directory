@@ -4,10 +4,10 @@ const UserTable = ({ users }) => {
 
 	console.log(users);
 
-	const userRows = users.map(user => {
+	const userRows = users.map((user, index) => {
 		const fullName = `${user.name.first} ${user.name.last}`
 		return (
-			<tr>
+			<tr key={index}>
 				<td><img src={user.picture.thumbnail} alt={fullName}></img></td>
 				<td>{fullName}</td>
 				<td>{user.phone}</td>

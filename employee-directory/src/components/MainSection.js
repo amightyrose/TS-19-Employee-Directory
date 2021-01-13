@@ -7,10 +7,13 @@ const MainSection = () => {
 
 	console.log(arrUsers);
 
+	// Set up the useState hook initial value for 'users'.
+	const [users, setUsers] = useState(arrUsers);
+
 	return (
 		<main className="bg-secondary">
 			<FilterForm/>
-			<UserTable users={arrUsers}/>
+			<UserTable users={users}/>
 		</main>
 	);
 }
