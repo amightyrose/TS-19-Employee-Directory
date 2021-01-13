@@ -10,7 +10,7 @@ const MainSection = () => {
 	return (
 		<main className="bg-secondary">
 			<FilterForm/>
-			<UserTable/>
+			<UserTable users={arrUsers}/>
 		</main>
 	);
 }
