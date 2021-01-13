@@ -2,11 +2,9 @@ import React from 'react';
 
 const Header = () => {
 	return (
-		<div className="container-fluid bg-dark">
-			<header>
-				<h1 className="Display-4 text-white py-4">Employee Directory</h1>
-			</header>
-		</div>
+		<header>
+			<h1 className="Display-4 text-white p-4 bg-dark">Employee Directory</h1>
+		</header>
 	);
 }
 

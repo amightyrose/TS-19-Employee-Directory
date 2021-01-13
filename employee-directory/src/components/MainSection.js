@@ -87,7 +87,7 @@ const MainSection = () => {
 
 
 	return (
-		<main className="bg-secondary">
+		<main className="bg-secondary container">
 			<FilterForm handleFormInput={handleFormInput} handleFormSubmit={handleFormSubmit}/>
 			<UserTable users={users} sortTable={sortTable} sortOrder={sortOrder}/>
 		</main>
