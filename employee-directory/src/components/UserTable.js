@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UserTable = ({ users }) => {
+const UserTable = ({ users, sortTable }) => {
 
 	const userRows = users.map((user, index) => {
 		return (
@@ -19,7 +19,7 @@ const UserTable = ({ users }) => {
 				<thead>
 					<tr>
 						<th scope="col">Image</th>
-						<th scope="col">Name</th>
+						<th scope="col"><a href="#" className="text-decoration-none" onClick={sortTable}>Name</a></th>
 						<th scope="col">Phone</th>
 						<th scope="col">Email</th>
 					</tr>

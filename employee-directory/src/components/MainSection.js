@@ -19,6 +19,7 @@ const MainSection = () => {
 	// Set up the useState hooks and initial value for 'users'.
 	const [users, setUsers] = useState(arrUsers);
 	const [filterValue, setFilterValue] = useState("");
+	const [sortOrder, setSortOrder] = useState("");
 
 
 	// Set up a useEffect hook to filter the user list when the filterValue changes.
@@ -43,20 +44,52 @@ const MainSection = () => {
 
 	// Function called when typing into filter form.
 	const handleFormInput = event => {
-
-		// Update the value shown in the input box.
 		setFilterValue(event.target.value);
-
 	}
 
+
+	// Function to stop page reload when pressing enter.
 	const handleFormSubmit = event => {
 		event.preventDefault();
 	}
 
+
+	// Function called when sort button is clicked.
+	const sortTable = () => {
+
+		// Check current sort order and return the new sort order.
+		(sortOrder !== "up") ? setSortOrder("up") : setSortOrder("down");
+		let sortedUsers;
+
+		// Sort the array of users
+		if (sortOrder === "up") {
+			sortedUsers = [...users].sort((a, b) => {
+				const nameA = a.fullName.toUpperCase();
+				const nameB = b.fullName.toUpperCase();
+				if (nameA < nameB) { return 1; }
+				if (nameA > nameB) { return -1; }
+				return 0;
+				});
+		}
+		else {
+			sortedUsers = [...users].sort((a, b) => {
+				const nameA = a.fullName.toUpperCase();
+				const nameB = b.fullName.toUpperCase();
+				if (nameA < nameB) { return -1; }
+				if (nameA > nameB) { return 1; }
+				return 0;
+			});
+		}
+
+		setUsers(sortedUsers);
+
+	}
+
+
 	return (
 		<main className="bg-secondary">
 			<FilterForm handleFormInput={handleFormInput} handleFormSubmit={handleFormSubmit}/>
-			<UserTable users={users}/>
+			<UserTable users={users} sortTable={sortTable}/>
 		</main>
 	);
 }
