@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // Filter form component
 const FilterForm = ( {filterValue, handleFormInput, handleFormSubmit }) => {
