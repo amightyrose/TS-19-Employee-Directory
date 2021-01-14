@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import FilterForm from './FilterForm';
 import UserTable from './UserTable';
 import { results } from '../users.json';
@@ -16,35 +16,31 @@ const MainSection = () => {
 	});
 
 
-	// Set up the useState hooks and initial value for 'users'.
+	// Set up the useState hooks and initial values.
 	const [users, setUsers] = useState(arrUsers);
 	const [filterValue, setFilterValue] = useState("");
 	const [sortOrder, setSortOrder] = useState("");
 
 
-	// Set up a useEffect hook to filter the user list when the filterValue changes.
-	useEffect(() => {
-
-		const matchesFilter = objUser => {
-
-			// Create an array of keys in the user object that we want to search.
-			const userObjectKeys = ["fullName", "email", "phone"];
-
-			// Iterate through each key and check the value against filterValue
-			// using regex. Will return true or false.
-			return userObjectKeys.some(key => objUser[key].toLowerCase().includes(filterValue.toLowerCase()));
-
-		}
-
-		// Set users to a filtered array.
-		setUsers(arrUsers.filter(user => matchesFilter(user)));
-
-	}, [filterValue]);
-
-
 	// Function called when typing into filter form.
 	const handleFormInput = event => {
-		setFilterValue(event.target.value);
+		const filterString = event.target.value;
+		setFilterValue(filterString);
+		setUsers(arrUsers.filter(user => matchesFilter(user, filterString)));
+		setSortOrder("");
+	}
+
+
+	// Function to check if any object values match current filtervalue.
+	const matchesFilter = (objUser, filterString) => {
+
+		// Create an array of keys in the user object that we want to search.
+		const userObjectKeys = ["fullName", "email", "phone"];
+
+		// Iterate through each key and check the value against filterValue
+		// using regex. Will return true or false.
+		return userObjectKeys.some(key => objUser[key].toLowerCase().includes(filterString.toLowerCase()));
+
 	}
 
 
@@ -88,7 +84,7 @@ const MainSection = () => {
 
 	return (
 		<main className="bg-secondary container">
-			<FilterForm handleFormInput={handleFormInput} handleFormSubmit={handleFormSubmit}/>
+			<FilterForm handleFormInput={handleFormInput} handleFormSubmit={handleFormSubmit} filterValue={filterValue}/>
 			<UserTable users={users} sortTable={sortTable} sortOrder={sortOrder}/>
 		</main>
 	);
